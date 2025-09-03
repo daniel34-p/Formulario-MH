@@ -1,0 +1,44 @@
+.container
+{
+    border: 5px solid #ca2c2c;
+    background-color: aqua;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 75px 75px 75px;
+    grid-template-areas: 
+    "none header header"
+    "side side none"
+    "side main main"
+
+}
+
+.item{
+    border: 2px solid blue;
+    font-size: 4rem;
+
+}
+
+.item-2
+{
+    grid-area:header;
+}
+.item-3
+{
+    grid-area:header;
+}
+.item-4
+{
+    grid-area:side;
+}
+.item-5
+{
+    grid-area:side;
+}
+
+
+
+
+
+
+
