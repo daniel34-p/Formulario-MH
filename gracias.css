@@ -9,7 +9,7 @@ body {
   font-family: Arial, sans-serif;
 
   /* Fondo con la misma imagen que en el formulario */
-  background: url("./assets/Hero1.webp") no-repeat center center/cover;
+  background: url("assets/Hero1.webp") no-repeat center center/cover;
 }
 
 /* Caja de agradecimiento */
