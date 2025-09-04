@@ -60,35 +60,35 @@
     </form>
   </div>
 
-  <script>
-    const form = document.getElementById("opinion-form");
+<script>
+  const form = document.getElementById("opinion-form");
 
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      const data = {
-        nombre: document.getElementById("nombre").value,
-        agencia: document.getElementById("agencia").value,
-        calificacion: document.getElementById("calificacion").value,
-        comentario: document.getElementById("comentario").value
-      };
+    const data = {
+      nombre: document.getElementById("nombre").value,
+      agencia: document.getElementById("agencia").value,
+      calificacion: document.getElementById("calificacion").value,
+      comentario: document.getElementById("comentario").value
+    };
 
-      try {
-        await fetch("https://script.google.com/macros/s/AKfycbwHiI7wMc0JjvA7FnuUcaNMVUMwOXoa5NOhZgjmWDKvPrijnoX4-oi5tYmMj0Sjun7u/exec", {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-              "Content-Type": "application/json"
-            },
-          body: JSON.stringify({ nombre, correo, mensaje })
-        });
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwHiI7wMc0JjvA7FnuUcaNMVUMwOXoa5NOhZgjmWDKvPrijnoX4-oi5tYmMj0Sjun7u/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data) // ✅ ahora manda los campos correctos
+      });
 
-        // Redirigir a página de gracias
-        window.location.href = "gracias.html";
-      } catch (error) {
-        alert("Hubo un error al enviar tus datos. Intenta de nuevo.");
-      }
-    });
-  </script>
+      // Redirigir a página de gracias
+      window.location.href = "gracias.html";
+    } catch (error) {
+      alert("Hubo un error al enviar tus datos. Intenta de nuevo.");
+    }
+  });
+</script>
 </body>
 </html>
