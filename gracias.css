@@ -1,0 +1,64 @@
+/* Fondo general */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+
+  /* Fondo con la misma imagen que en el formulario */
+  background: url("./assets/Hero1.webp") no-repeat center center/cover;
+}
+
+/* Caja de agradecimiento */
+.thanks-container {
+  background: rgba(0, 0, 0, 0.5); /* efecto vidrio oscuro */
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 500px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.thanks-container h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #fdfdfd;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+.thanks-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón volver */
+.thanks-container a {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  background: #e96f1d;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.thanks-container a:hover {
+  background: #df7b29;
+}

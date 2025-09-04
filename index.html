@@ -1,23 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Grid</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Atención</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="item item-1">1</div>
-        <div class="item item-2">2</div>
-        <div class="item item-3">3</div>
-        <div class="item item-4">4</div>
-        <div class="item item-5">5</div>
-        <div class="item item-6">6</div>
-        <div class="item item-7">7</div>
-        <div class="item item-8">8</div>
-        <div class="item item-9">9</div>
+  <div class="form-container">
+    <!-- Encabezado con logo y título -->
+    <div class="form-header">
+      <h1>Ayúdanos a mejorar</h1>
+      <img class="logoMh" src="./assets/LogoMh.png" alt="Logo Mil Herrajes">
     </div>
 
+    <form id="opinion-form">
+      <!-- Nombre -->
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <!-- Selección Agencia -->
+      <label for="agencia">Seleccione la agencia que lo atendió:</label>
+      <select id="agencia" name="agencia" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option>Agencia 1</option>
+        <option>Agencia 2</option>
+        <option>Agencia 3</option>
+        <option>Agencia 4</option>
+        <option>Agencia 5</option>
+        <option>Agencia 6</option>
+        <option>Agencia 7</option>
+        <option>Agencia 8</option>
+        <option>Agencia 9</option>
+        <option>Agencia 10</option>
+        <option>Agencia 11</option>
+        <option>Agencia 12</option>
+        <option>Agencia 13</option>
+        <option>Agencia 14</option>
+        <option>Agencia 15</option>
+      </select>
+
+      <!-- Calificación -->
+      <label for="calificacion">¿Cómo calificas la atención?</label>
+      <select id="calificacion" name="calificacion" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option>Excelente</option>
+        <option>Buena</option>
+        <option>Regular</option>
+        <option>Mala</option>
+        <option>Muy mala</option>
+      </select>
+
+      <!-- Comentario -->
+      <label for="comentario">Déjanos tu comentario:</label>
+      <textarea id="comentario" name="comentario" rows="4"></textarea>
+
+      <!-- Botón -->
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("opinion-form");
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const data = {
+        nombre: document.getElementById("nombre").value,
+        agencia: document.getElementById("agencia").value,
+        calificacion: document.getElementById("calificacion").value,
+        comentario: document.getElementById("comentario").value
+      };
+
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbwHiI7wMc0JjvA7FnuUcaNMVUMwOXoa5NOhZgjmWDKvPrijnoX4-oi5tYmMj0Sjun7u/exec", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" }
+        });
+
+        // Redirigir a página de gracias
+        window.location.href = "gracias.html";
+      } catch (error) {
+        alert("Hubo un error al enviar tus datos. Intenta de nuevo.");
+      }
+    });
+  </script>
 </body>
 </html>

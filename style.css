@@ -1,41 +1,98 @@
-.container
-{
-    border: 5px solid #ca2c2c;
-    background-color: aqua;
-    display: grid;
-    padding: 10px;
-    grid-template-columns: 150px 150px 150px;
-    grid-template-rows: 75px 75px 75px;
-    grid-template-areas: 
-    "none header header"
-    "side side none"
-    "side main main"
+/* Fondo general */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-}
-
-.item{
-    border: 2px solid blue;
-    font-size: 4rem;
-
+  /* Imagen de fondo */
+  background: url("/assets/Hero2.webp") no-repeat center center/cover;
 }
 
-.item-2
-{
-    grid-area:header;
-}
-.item-3
-{
-    grid-area:header;
-}
-.item-4
-{
-    grid-area:side;
-}
-.item-5
-{
-    grid-area:side;
+/* Contenedor del formulario */
+.form-container {
+  background: rgba(0, 0, 0, 0.4); /* oscuro translúcido */
+  border-radius: 15px;
+  padding: 30px;
+  width: 350px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
+/* Título y labels */
+.form-container h1,
+.form-container label {
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* sombra para legibilidad */
+  font-weight: bold;
+}
+
+/* Inputs, selects y textarea */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px 0;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2); /* efecto vidrio */
+  color: #fff;
+  font-size: 18px;
+  backdrop-filter: blur(5px);
+  
+}
+
+/* Texto placeholder */
+form input::placeholder,
+form textarea::placeholder {
+  color: rgb(255, 255, 255)
+}
+
+/* Opciones del select */
+form select option {
+  color: #000; /* negro para que se lean bien en la lista desplegable */
+}
+
+/* Botón */
+form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #e96f1d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+form button:hover {
+  background: #df7b29;
+}
+
+.logoMh{
+  width: 70px;
+  height: auto;
+}
+
+.form-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.form-header h1 {
+  margin: 0; /* quita márgenes extra del h1 */
+  font-size: 22px; /* puedes ajustar el tamaño */
+}
 
 
 
