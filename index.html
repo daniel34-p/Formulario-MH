@@ -23,21 +23,21 @@
       <label for="agencia">Seleccione la agencia que lo atendió:</label>
       <select id="agencia" name="agencia" required>
         <option value="" disabled selected>Seleccione una opción</option>
-        <option>Agencia 1</option>
-        <option>Agencia 2</option>
-        <option>Agencia 3</option>
-        <option>Agencia 4</option>
-        <option>Agencia 5</option>
-        <option>Agencia 6</option>
-        <option>Agencia 7</option>
-        <option>Agencia 8</option>
-        <option>Agencia 9</option>
-        <option>Agencia 10</option>
-        <option>Agencia 11</option>
-        <option>Agencia 12</option>
-        <option>Agencia 13</option>
-        <option>Agencia 14</option>
-        <option>Agencia 15</option>
+        <option>Bucaramanga - Mil Herrajes</option>
+        <option>Bucaramanga - Metroadornos</option>
+        <option>Bucaramanga - Metroherrajes</option>
+        <option>Bucaramanga - Casablanca</option>
+        <option>Barranquilla - Mil Herrajes</option>
+        <option>Valledupar - Centroadornos</option>
+        <option>Sincelejo - Centroherrajes</option>
+        <option>Bogota - Mil Herrajes - centro</option>
+        <option>Bogota - Mil Herrajes - calle 18</option>
+        <option>Bogota - Mil Herrajes - calle 16</option>
+        <option>Bogota - Centroadornos</option>
+        <option>Cucuta - Peleteria</option>
+        <option>Cucuta - Cacharreria</option>
+        <option>Cali - Mil Herrajes</option>
+        <option>Cali Centroherrajes</option>
       </select>
 
       <!-- Calificación -->
@@ -60,35 +60,44 @@
     </form>
   </div>
 
-<script>
-  const form = document.getElementById("opinion-form");
+  <!-- Modal de "Enviando respuesta" -->
+  <div id="modal-enviando" class="modal-enviando" style="display:none;">
+    <div class="modal-content">
+      <p>Enviando respuesta...</p>
+    </div>
+  </div>
 
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
+  <script>
+    const form = document.getElementById("opinion-form");
+    const modal = document.getElementById("modal-enviando");
 
-    const data = {
-      nombre: document.getElementById("nombre").value,
-      agencia: document.getElementById("agencia").value,
-      calificacion: document.getElementById("calificacion").value,
-      comentario: document.getElementById("comentario").value
-    };
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      modal.style.display = "flex"; // Mostrar modal
 
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbwHiI7wMc0JjvA7FnuUcaNMVUMwOXoa5NOhZgjmWDKvPrijnoX4-oi5tYmMj0Sjun7u/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data) // ✅ ahora manda los campos correctos
-      });
+      const data = {
+        nombre: document.getElementById("nombre").value,
+        agencia: document.getElementById("agencia").value,
+        calificacion: document.getElementById("calificacion").value,
+        comentario: document.getElementById("comentario").value
+      };
 
-      // Redirigir a página de gracias
-      window.location.href = "gracias.html";
-    } catch (error) {
-      alert("Hubo un error al enviar tus datos. Intenta de nuevo.");
-    }
-  });
-</script>
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbwHiI7wMc0JjvA7FnuUcaNMVUMwOXoa5NOhZgjmWDKvPrijnoX4-oi5tYmMj0Sjun7u/exec", {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        window.location.href = "gracias.html";
+      } catch (error) {
+        modal.style.display = "none"; // Ocultar modal si hay error
+        alert("Hubo un error al enviar tus datos. Intenta de nuevo.");
+      }
+    });
+  </script>
 </body>
 </html>
